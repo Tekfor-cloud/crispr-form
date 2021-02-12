@@ -1,4 +1,6 @@
-# json_field
-A first test to implement Postgresql Json type field in Odoo
+# Crispr-form
+An impovement of ir.ui.view to add possibility to inject a view arch in a form
 
-Json field value can be validated and structured with a json schema: http://json-schema.org/
+## how to use it?
+
+Just add in your form view tag **form-arch-insert**
