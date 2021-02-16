@@ -6,9 +6,11 @@ docker-ci-build:
   stage: docker
   tags:
     - shell
+  variables:
+    BUILD_OPTS: "--network=internal_bridge --force-rm --no-cache --build-arg CI_JOB_TOKEN=${CI_JOB_TOKEN} --build-arg CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME}"
   script:
     - cd ci/Docker
-    - docker build crispr_form_odoo_ci -t crispr_form_odoo_ci:$CI_PIPELINE_ID
+    - docker build ${BUILD_OPTS} crispr_form_odoo_ci -t crispr_form_odoo_ci:$CI_PIPELINE_ID
 # integration-tests:
 #   stage: test
 #   tags:
