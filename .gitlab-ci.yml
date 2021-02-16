@@ -17,6 +17,7 @@ docker-ci-build:
 #     name: article714/odoo-container
 #   services:
 #     - name: article714/postgresql-container
+#       alias: db_postgresql
 #   script:
 #     - runsvdir -P ${SVDIR} &
 #     - sleep 5
