@@ -1,0 +1,23 @@
+stages:
+  - docker
+  - test
+
+docker-ci-build:
+  stage: docker
+  tags:
+    - shell
+  script:
+    - cd ci/Docker
+    - docker build crispr_form_odoo_ci -t crispr_form_odoo_ci:$CI_PIPELINE_ID
+# integration-tests:
+#   stage: test
+#   tags:
+#     - docker
+#   image:
+#     name: article714/odoo-container
+#   services:
+#     - name: article714/postgresql-container
+#   script:
+#     - runsvdir -P ${SVDIR} &
+#     - sleep 5
+#     - sv -v status odoo
