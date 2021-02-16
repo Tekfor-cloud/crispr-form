@@ -1,6 +1,6 @@
 #--
 # start from image
-FROM article714/odoo-container
+FROM article714/odoo-container:12-latest
 LABEL maintainer="Apside <dcouppe.2801@apside-groupe.com>"
 
 ARG CI_JOB_TOKEN
