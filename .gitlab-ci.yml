@@ -11,16 +11,22 @@ docker-ci-build:
   script:
     - cd ci/Docker
     - docker build ${BUILD_OPTS} crispr_form_odoo_ci -t crispr_form_odoo_ci:$CI_PIPELINE_ID
-# integration-tests:
-#   stage: test
-#   tags:
-#     - docker
-#   image:
-#     name: article714/odoo-container
-#   services:
-#     - name: article714/postgresql-container
-#       alias: db_postgresql
-#   script:
-#     - runsvdir -P ${SVDIR} &
-#     - sleep 5
-#     - sv -v status odoo
+
+integration-tests:
+  stage: test
+  tags:
+    - docker
+  image:
+    name: crispr_form_odoo_ci:$CI_PIPELINE_ID
+  variables:
+    POSTGRES_DB: crispr
+    POSTGRES_USER: odoo
+    POSTGRES_PASSWORD: odoo
+    POSTGRES_HOST_AUTH_METHOD: trust
+  services:
+    - name: article714/postgresql-container:11-latest
+      alias: db_postgresql
+  script:
+    - runsvdir -P ${SVDIR} &
+    - sleep 5
+    - sv -v status odoo
