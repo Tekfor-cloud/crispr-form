@@ -4,6 +4,7 @@
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
         <field name="priority">1000</field>
+        <field name="type">form</field>
         <field name="arch" type="xml">
             <group>
                 <field name="name"/>
@@ -38,6 +39,7 @@
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
         <field name="priority">1000</field>
+        <field name="type">form</field>
         <field name="arch" type="xml">
             <group>
                 <form-arch-insert view_ref="crispr_test_partner_template_form"/>
