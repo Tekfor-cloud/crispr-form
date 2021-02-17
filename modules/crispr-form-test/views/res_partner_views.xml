@@ -43,7 +43,7 @@
         <field name="arch" type="xml">
             <group>
                 <form-arch-insert view_ref="crispr_test_partner_template_form"/>
-                <field name="street_2"/>
+                <field name="street2"/>
             </group>
         </field>
     </record>
