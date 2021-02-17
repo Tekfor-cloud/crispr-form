@@ -28,3 +28,8 @@ integration-tests:
       alias: db_postgresql
   script:
     - odoo --stop-after-init --without-demo=all --database=crispr -c $ODOO_RC -i base,web,crispr-form
+    - cd /home/odoo/addons/crispr-form
+    - runsvdir -P ${SVDIR} &
+    - sleep 5
+    - sv -v down odoo
+    - pytest
