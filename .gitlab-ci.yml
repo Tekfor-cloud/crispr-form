@@ -31,5 +31,4 @@ integration-tests:
     - cd /home/odoo/addons/crispr-form
     - runsvdir -P ${SVDIR} &
     - sleep 5
-    - sv -v down odoo
     - pytest -v

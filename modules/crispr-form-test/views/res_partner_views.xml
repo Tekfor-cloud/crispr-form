@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="crispr_test_partner_template_form" model="ir.ui.view">
+        <field name="name">crispr.test.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="priority">1000</field>
+        <field name="arch">
+            <group>
+                <field name="name"/>
+                <field name="street"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="crispr_test_partner_form_a" model="ir.ui.view">
+        <field name="name">crispr.test.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="priority">1000</field>
+        <field name="arch">
+            <form>
+                <form-arch-insert view_ref="crispr_test_partner_template_form"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="crispr_test_partner_form_b" model="ir.ui.view">
+        <field name="name">crispr.test.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="crispr_test_partner_form_a"/>
+        <field name="arch">
+            <form position="inside">
+                <form-arch-insert view_ref="crispr_test_partner_template_form"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="crispr_test_partner_template_2_form" model="ir.ui.view">
+        <field name="name">crispr.test.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="priority">1000</field>
+        <field name="arch">
+            <group>
+                <form-arch-insert view_ref="crispr_test_partner_template_form"/>
+                <field name="street_2"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="crispr_test_partner_form_c" model="ir.ui.view">
+        <field name="name">crispr.test.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="crispr_test_partner_form_c"/>
+        <field name="arch">
+            <form position="inside">
+                <form-arch-insert view_ref="crispr_test_partner_template_2_form"/>
+            </form>
+        </record>
+    </odoo>
