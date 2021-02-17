@@ -27,6 +27,4 @@ integration-tests:
     - name: article714/postgresql-container:11-latest
       alias: db_postgresql
   script:
-    - runsvdir -P ${SVDIR} &
-    - sleep 5
-    - sv -v status odoo
+    - odoo --stop-after-init --without-demo=all --database=crispr -c $ODOO_RC -i base,web,crispr-form
