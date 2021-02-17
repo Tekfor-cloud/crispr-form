@@ -51,7 +51,6 @@
     <record id="crispr_test_partner_form_c" model="ir.ui.view">
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="crispr_test_partner_form_c"/>
         <field name="arch" type="xml">
             <form position="inside">
                 <form-arch-insert view_ref="crispr_test_partner_template_2_form"/>
