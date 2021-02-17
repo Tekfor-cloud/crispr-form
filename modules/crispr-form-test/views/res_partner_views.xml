@@ -54,5 +54,6 @@
             <form position="inside">
                 <form-arch-insert view_ref="crispr_test_partner_template_2_form"/>
             </form>
-        </record>
-    </odoo>
+        </field>
+    </record>
+</odoo>
