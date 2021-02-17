@@ -31,6 +31,8 @@ integration-tests:
     - cd /home/odoo/addons/crispr-form
     - runsvdir -P ${SVDIR} &
     - sleep 5
+    - ls /var/log/odoo
+    - cat /var/log/odoo/odoo.log
     - pytest -v
   artifacts:
     paths:
