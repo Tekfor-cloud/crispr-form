@@ -27,15 +27,14 @@ integration-tests:
     - name: article714/postgresql-container:11-latest
       alias: db_postgresql
   script:
-    - odoo --logfile=/var/log/odoo/odoo_build.log --stop-after-init --without-demo=all --database=crispr -c $ODOO_RC -i base,web,crispr-form
+    - odoo --logfile=/var/log/odoo/odoo_build.log --stop-after-init --without-demo=all --database=crispr -c $ODOO_RC -i base,web,crispr-form-test
+    - cp /var/log/odoo/odoo_build.log ci/odoo_build.log
     - cd /home/odoo/addons/crispr-form
     - runsvdir -P ${SVDIR} &
     - sleep 5
-    - ls /var/log/odoo
-    - cat /var/log/odoo/odoo.log
     - pytest -v
   artifacts:
     paths:
-      - /var/log/odoo/odoo_build.log
+      - ci/odoo_build.log
     expire_in: 3 days
     when: always
