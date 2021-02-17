@@ -4,7 +4,7 @@
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
         <field name="priority">1000</field>
-        <field name="arch">
+        <field name="arch" type="xml">
             <group>
                 <field name="name"/>
                 <field name="street"/>
@@ -16,7 +16,7 @@
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
         <field name="priority">1000</field>
-        <field name="arch">
+        <field name="arch" type="xml">
             <form>
                 <form-arch-insert view_ref="crispr_test_partner_template_form"/>
             </form>
@@ -27,7 +27,7 @@
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="crispr_test_partner_form_a"/>
-        <field name="arch">
+        <field name="arch" type="xml">
             <form position="inside">
                 <form-arch-insert view_ref="crispr_test_partner_template_form"/>
             </form>
@@ -38,7 +38,7 @@
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
         <field name="priority">1000</field>
-        <field name="arch">
+        <field name="arch" type="xml">
             <group>
                 <form-arch-insert view_ref="crispr_test_partner_template_form"/>
                 <field name="street_2"/>
@@ -50,7 +50,7 @@
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="crispr_test_partner_form_c"/>
-        <field name="arch">
+        <field name="arch" type="xml">
             <form position="inside">
                 <form-arch-insert view_ref="crispr_test_partner_template_2_form"/>
             </form>
