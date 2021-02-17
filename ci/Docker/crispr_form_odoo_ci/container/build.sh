@@ -2,6 +2,8 @@ apt-get update
 
 pip3 install pytest pytest-odoo
 
+python3 /container/tools/clone_dependencies.py /home/odoo/addons 12.0
+
 apt-get -yq clean && \
 apt-get -yq autoremove && \
 rm -rf /var/lib/apt/lists/* \
