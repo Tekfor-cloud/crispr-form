@@ -23,6 +23,7 @@ integration-tests:
     POSTGRES_USER: odoo
     POSTGRES_PASSWORD: odoo
     POSTGRES_HOST_AUTH_METHOD: trust
+    PYTEST_PLUGINS: "odoo"
   services:
     - name: article714/postgresql-container:11-latest
       alias: db_postgresql
