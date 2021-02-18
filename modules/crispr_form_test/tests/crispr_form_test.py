@@ -1,4 +1,4 @@
-from lxml import etree
+from xmldiff.main import diff_texts as xml_diff_texts
 from odoo.tests import common
 
 
@@ -10,15 +10,14 @@ class CrisprFormTestSuite(common.TransactionCase):
             self.env.ref("crispr_form_test.{}".format(view_name)).id
         )
 
-        test_data = etree.ElementTree.canonicalize(xml_data=view_a["arch"])
+        test_data = view_a["arch"]
 
-        ref_data = etree.ElementTree.canonicalize(
-            from_file="crispr_form_test/tests/expected_results/{}.xml".format(
-                view_name
-            )
-        )
+        with open(
+            "crispr_form_test/tests/expected_results/{}.xml".format(view_name)
+        ) as f:
+            ref_data = f.read()
 
-        self.assertEqual(test_data, ref_data)
+        self.assertListEqual(xml_diff_texts(test_data, ref_data), [])
 
     def test_crispr_test_partner_form_a(self):
         self._compare_view_to_expected_result("crispr_test_partner_form_a")
