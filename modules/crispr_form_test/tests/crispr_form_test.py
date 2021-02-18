@@ -1,12 +1,24 @@
+from lxml import etree
 from odoo.tests import common
 
 
 class CrisprFormTestSuite(common.TransactionCase):
-    def test_crispr(self):
+    def _compare_view_to_expected_result(self, view_name):
         mdl_partner = self.env["res.partner"]
 
         view_a = mdl_partner.fields_view_get(
-            self.env.ref("crispr_form_test.crispr_test_partner_form_a").id
+            self.env.ref("crispr_form_test.{}".format(view_name)).id
         )
 
-        print(view_a["arch"])
+        test_data = etree.ElementTree.canonicalize(xml_data=view_a["arch"])
+
+        ref_data = etree.ElementTree.canonicalize(
+            from_file="crispr_form_test/tests/expected_results/{}.xml".format(
+                view_name
+            )
+        )
+
+        self.assertEqual(test_data, ref_data)
+
+    def test_crispr_test_partner_form_a(self):
+        self._compare_view_to_expected_result("crispr_test_partner_form_a")
