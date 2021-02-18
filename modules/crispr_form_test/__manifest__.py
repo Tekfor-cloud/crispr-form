@@ -6,7 +6,7 @@
     "license": "LGPL-3",
     "website": "https://www.article714.org",
     "summary": """ """,
-    "depends": ["crispr-form"],
+    "depends": ["crispr_form"],
     "data": ["views/res_partner_views.xml"],
     "qweb": [],
     "installable": True,
