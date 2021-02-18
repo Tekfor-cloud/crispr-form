@@ -1,6 +1,5 @@
 from xmldiff.main import diff_texts as xml_diff_texts
 from odoo.tests import common
-import os
 
 
 class CrisprFormTestSuite(common.TransactionCase):
@@ -13,7 +12,6 @@ class CrisprFormTestSuite(common.TransactionCase):
 
         test_data = view_a["arch"]
 
-        print(os.getcwd())
         with open(
             "crispr_form_test/tests/expected_results/{}.xml".format(view_name)
         ) as f:
