@@ -21,3 +21,9 @@ class CrisprFormTestSuite(common.TransactionCase):
 
     def test_crispr_test_partner_form_a(self):
         self._compare_view_to_expected_result("crispr_test_partner_form_a")
+
+    def test_crispr_test_partner_form_b(self):
+        self._compare_view_to_expected_result("crispr_test_partner_form_b")
+
+    def test_crispr_test_partner_form_c(self):
+        self._compare_view_to_expected_result("crispr_test_partner_form_c")

@@ -52,7 +52,7 @@
         <field name="name">crispr.test.partner.form</field>
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
-            <form position="inside">
+            <form>
                 <form-arch-insert view_ref="crispr_form_test.crispr_test_partner_template_2_form"/>
             </form>
         </field>

@@ -1,0 +1,10 @@
+<form>
+    <group>
+        <field name="name" modifiers="{}"/>
+        <field name="street" modifiers="{}"/>
+    </group>
+    <group>
+        <field name="name" modifiers="{}"/>
+        <field name="street" modifiers="{}"/>
+    </group>
+</form>
