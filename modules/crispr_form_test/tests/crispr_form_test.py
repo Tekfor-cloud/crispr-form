@@ -11,7 +11,7 @@ class CrisprFormTestSuite(common.TransactionCase):
         )
 
         test_data = view_a["arch"]
-        print(test_data)
+
         with open(
             "crispr_form_test/tests/expected_results/{}.xml".format(view_name)
         ) as f:
