@@ -6,7 +6,7 @@ class CrisprFormTestSuite(common.TransactionCase):
         mdl_partner = self.env["res.partner"]
 
         view_a = mdl_partner.fields_view_get(
-            self.env.ref("crispr_form_test.crispr_test_partner_form_a")
+            self.env.ref("crispr_form_test.crispr_test_partner_form_a").id
         )
 
         print(view_a["arch"])
