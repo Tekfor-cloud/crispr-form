@@ -15,7 +15,8 @@ class IrUiView(models.Model):
                 etree.fromstring(view_data["arch"])
             )
             view_data["arch"] = etree.tostring(arch, encoding="unicode")
-
+            print("BBBBBBBBBBBBBBBBBBBBB")
+        print("AAAAAAAAAAAAAAAAAA")
         return view_data
 
     def apply_view_form_arch_insert(self, arch):
