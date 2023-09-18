@@ -3,11 +3,9 @@ from lxml import etree
 
 
 class IrUiView(models.Model):
-
     _inherit = "ir.ui.view"
 
     def apply_view_form_arch_insert(self, arch):
-
         for insert_arch_tag in arch.xpath("//form-arch-insert"):
             view = self.env.ref(insert_arch_tag.get("view_ref"))
             view_arch = view.read_combined(["arch", "type"])["arch"]
@@ -19,8 +17,6 @@ class IrUiView(models.Model):
         return arch
 
     @api.model
-    def apply_view_inheritance(self, source, source_id, model, root_id=None):
+    def apply_view_inheritance(self, source, model):
         source = self.apply_view_form_arch_insert(source)
-        return super(IrUiView, self).apply_view_inheritance(
-            source, source_id, model, root_id
-        )
+        return super(IrUiView, self).apply_view_inheritance(source, model)
