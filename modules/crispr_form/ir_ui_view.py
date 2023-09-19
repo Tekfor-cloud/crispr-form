@@ -16,6 +16,10 @@ class IrUiView(models.Model):
 
         return arch
 
+    def apply_view_inheritance(self, source, model):
+        source = self.apply_view_form_arch_insert(source)
+        return super(IrUiView, self).apply_view_inheritance(source, model)
+
     @api.model
     def apply_inheritance_specs(
         self, source, specs_tree, pre_locate=lambda s: True
