@@ -1,6 +1,6 @@
 {
     "name": "Crispr-form-test",
-    "version": "14.0.0.0.1",
+    "version": "15.0.0.0.1",
     "category": "form view",
     "author": "Article714",
     "license": "LGPL-3",
@@ -8,7 +8,6 @@
     "summary": """ """,
     "depends": ["crispr_form"],
     "data": ["views/res_partner_views.xml"],
-    "qweb": [],
     "installable": True,
     "images": [],
     "application": False,
