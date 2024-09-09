@@ -5,8 +5,6 @@ from lxml import etree
 class IrUiView(models.Model):
     _inherit = "ir.ui.view"
 
-    # TODO 15.0 : This do not work anymore, need more work
-
     def apply_view_form_arch_insert(self, arch):
         for insert_arch_tag in arch.xpath("//form-arch-insert"):
             view = self.env.ref(insert_arch_tag.get("view_ref"))
@@ -18,11 +16,16 @@ class IrUiView(models.Model):
 
         return arch
 
-    @api.model
-    def apply_inheritance_specs(
-        self, source, specs_tree, pre_locate=lambda s: True
-    ):
-        source = self.apply_view_form_arch_insert(source)
-        return super(IrUiView, self).apply_inheritance_specs(
-            source, specs_tree, pre_locate
-        )
+    # @api.model
+    # def apply_inheritance_specs(
+    #     self, source, specs_tree, pre_locate=lambda s: True
+    # ):
+    #     source = self.apply_view_form_arch_insert(source)
+    #     return super(IrUiView, self).apply_inheritance_specs(
+    #         source, specs_tree, pre_locate
+    #     )
+
+    def _get_combined_arch(self):
+        arch = super(IrUiView, self)._get_combined_arch()
+        arch = self.apply_view_form_arch_insert(arch)
+        return arch
