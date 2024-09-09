@@ -16,14 +16,14 @@ class IrUiView(models.Model):
 
         return arch
 
-    # @api.model
-    # def apply_inheritance_specs(
-    #     self, source, specs_tree, pre_locate=lambda s: True
-    # ):
-    #     source = self.apply_view_form_arch_insert(source)
-    #     return super(IrUiView, self).apply_inheritance_specs(
-    #         source, specs_tree, pre_locate
-    #     )
+    @api.model
+    def apply_inheritance_specs(
+        self, source, specs_tree, pre_locate=lambda s: True
+    ):
+        source = self.apply_view_form_arch_insert(source)
+        return super(IrUiView, self).apply_inheritance_specs(
+            source, specs_tree, pre_locate
+        )
 
     def _combine(self, hierarchy: dict):
         arch = super()._combine(hierarchy)
