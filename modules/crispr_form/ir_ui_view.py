@@ -25,7 +25,12 @@ class IrUiView(models.Model):
     #         source, specs_tree, pre_locate
     #     )
 
-    def _get_combined_arch(self):
-        arch = super(IrUiView, self)._get_combined_arch()
+    def _combine(self, hierarchy: dict):
+        arch = super()._combine(hierarchy)
         arch = self.apply_view_form_arch_insert(arch)
         return arch
+
+    # def _get_combined_arch(self):
+    #     arch = super(IrUiView, self)._get_combined_arch()
+    #     arch = self.apply_view_form_arch_insert(arch)
+    #     return arch
