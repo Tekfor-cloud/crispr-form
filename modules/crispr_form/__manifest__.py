@@ -1,6 +1,6 @@
 {
     "name": "Crispr-form",
-    "version": "15.0.0.0.1",
+    "version": "16.0.0.0.1",
     "category": "form view",
     "author": "Article714",
     "license": "LGPL-3",
